@@ -8,6 +8,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Install Dependencies
+        run: pip install pandas
+
       - name: Control 1 - Verify Security Policy
         run: |
           if [ -f "SECURITY.md" ]; then
@@ -29,3 +32,4 @@ jobs:
           if not critical.empty:
               print(f'\n🚨 ALERT: {len(critical)} Critical Risks found!')
           "
+
