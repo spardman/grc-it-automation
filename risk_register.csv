@@ -1,0 +1,4 @@
+Risk_ID,Description,Probability,Impact
+R001,Unpatched Server,0.8,5
+R002,Lack of MFA,0.5,4
+R003,Stale User Access,0.3,3
