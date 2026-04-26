@@ -1,0 +1,31 @@
+name: GRC Automated Control
+on: [push]
+
+jobs:
+  compliance-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Control 1 - Verify Security Policy
+        run: |
+          if [ -f "SECURITY.md" ]; then
+            echo "✅ Control Passed: SECURITY.md exists."
+          else
+            echo "❌ Control Failed: SECURITY.md is missing. Non-compliant with ISO 27001 A.5.1."
+            exit 1
+          fi
+
+      - name: Control 2 - Calculate Risk Scores
+        run: |
+          python3 -c "
+          import pandas as pd
+          df = pd.read_csv('risk_register.csv')
+          df['Score'] = df['Probability'] * df['Impact']
+          critical = df[df['Score'] >= 4.0]
+          print('--- Risk Report ---')
+          print(df)
+          if not critical.empty:
+              print(f'\n🚨 ALERT: {len(critical)} Critical Risks found!')
+          "
