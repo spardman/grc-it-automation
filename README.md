@@ -11,7 +11,7 @@ This repository contains automation tools and PowerShell scripts designed to str
 ## Automation & Scripts
 ### 1. Environment Setup (`ad_setup.ps1`)
 This PowerShell script configures the initial environment baseline required for auditing.
-* **What it does**: [Add 1 sentence on what it provisions, e.g., creates Active Directory test structures or audit groups]
+* **What it does**: Provisions Active Directory department structures and forces the deployment of target audit policies.
 * **How to run it**:
 ```powershell
 .\ad_setup.ps1
