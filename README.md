@@ -25,7 +25,7 @@ The project utilizes automated workflows located in `.github/workflows/`:
 ## Getting Started
 1. Clone this repository:
    ```bash
-   git clone https://github.com
+   git clone https://github.com/spardman/grc-it-automation.git
    ```
 2. Open PowerShell as an Administrator.
 3. Run the setup script to initialize the environment.
